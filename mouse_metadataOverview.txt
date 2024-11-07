@@ -1,0 +1,513 @@
+Column: sample_name
+Data Type: object
+First 5 values:
+ACGCAGCAGACCGGAT-L8TX_180221_01_C11
+CCATGTCAGCGCTTAT-L8TX_180221_01_C11
+GCGCAGTAGTGTCTCA-L8TX_180712_01_H05
+GTCACGGCACCAACCG-L8TX_180712_01_H05
+ATTGGACTCGATCCCT-L8TX_180712_01_A06
+
+Column: donor_sex_id
+Data Type: int64
+First 5 values:
+2
+2
+2
+2
+2
+
+Column: donor_sex_label
+Data Type: object
+First 5 values:
+M
+M
+M
+M
+M
+
+Column: donor_sex_color
+Data Type: object
+First 5 values:
+#ADC4C3
+#ADC4C3
+#ADC4C3
+#ADC4C3
+#ADC4C3
+
+Column: region_id
+Data Type: int64
+First 5 values:
+20
+20
+21
+21
+21
+
+Column: region_label
+Data Type: object
+First 5 values:
+RSP
+RSP
+TEa-PERI-ECT
+TEa-PERI-ECT
+TEa-PERI-ECT
+
+Column: region_color
+Data Type: object
+First 5 values:
+#2B9EAD
+#2B9EAD
+#76CBE2
+#76CBE2
+#76CBE2
+
+Column: platform_label
+Data Type: object
+First 5 values:
+10X
+10X
+10X
+10X
+10X
+
+Column: cluster_order
+Data Type: int64
+First 5 values:
+116
+364
+18
+15
+18
+
+Column: cluster_label
+Data Type: object
+First 5 values:
+116_Pvalb
+364_DG
+18_Lamp5
+15_Lamp5
+18_Lamp5
+
+Column: cluster_color
+Data Type: object
+First 5 values:
+#EC2D46
+#413BE2
+#D97C80
+#A6666F
+#D97C80
+
+Column: subclass_order
+Data Type: int64
+First 5 values:
+8
+36
+3
+3
+3
+
+Column: subclass_label
+Data Type: object
+First 5 values:
+Pvalb
+DG
+Lamp5
+Lamp5
+Lamp5
+
+Column: subclass_color
+Data Type: object
+First 5 values:
+#D93137
+#394FD3
+#DA808C
+#DA808C
+#DA808C
+
+Column: neighborhood_id
+Data Type: int64
+First 5 values:
+2
+7
+1
+1
+1
+
+Column: neighborhood_label
+Data Type: object
+First 5 values:
+MGE
+DG/SUB/CA
+CGE
+CGE
+CGE
+
+Column: neighborhood_color
+Data Type: object
+First 5 values:
+#ED892E
+#9AB7E2
+#CC93C2
+#CC93C2
+#CC93C2
+
+Column: class_order
+Data Type: int64
+First 5 values:
+2
+1
+2
+2
+2
+
+Column: class_label
+Data Type: object
+First 5 values:
+GABAergic
+Glutamatergic
+GABAergic
+GABAergic
+GABAergic
+
+Column: class_color
+Data Type: object
+First 5 values:
+#F05A28
+#00ADEE
+#F05A28
+#F05A28
+#F05A28
+
+Column: exp_component_name
+Data Type: object
+First 5 values:
+ACGCAGCAGACCGGAT-L8TX_180221_01_C11
+CCATGTCAGCGCTTAT-L8TX_180221_01_C11
+GCGCAGTAGTGTCTCA-L8TX_180712_01_H05
+GTCACGGCACCAACCG-L8TX_180712_01_H05
+ATTGGACTCGATCCCT-L8TX_180712_01_A06
+
+Column: external_donor_name_label
+Data Type: int64
+First 5 values:
+373822
+373822
+395345
+395345
+395345
+
+Column: full_genotype_label
+Data Type: object
+First 5 values:
+Snap25-IRES2-Cre/wt;Ai14(RCL-tdT)/wt
+Snap25-IRES2-Cre/wt;Ai14(RCL-tdT)/wt
+Snap25-IRES2-Cre/wt;Ai14(RCL-tdT)/wt
+Snap25-IRES2-Cre/wt;Ai14(RCL-tdT)/wt
+Snap25-IRES2-Cre/wt;Ai14(RCL-tdT)/wt
+
+Column: facs_population_plan_label
+Data Type: object
+First 5 values:
+RFP-positive
+RFP-positive
+RFP-positive
+RFP-positive
+RFP-positive
+
+Column: injection_roi_label
+Data Type: float64
+First 5 values:
+nan
+nan
+nan
+nan
+nan
+
+Column: injection_materials_label
+Data Type: float64
+First 5 values:
+nan
+nan
+nan
+nan
+nan
+
+Column: injection_method_label
+Data Type: float64
+First 5 values:
+nan
+nan
+nan
+nan
+nan
+
+Column: injection_type_label
+Data Type: float64
+First 5 values:
+nan
+nan
+nan
+nan
+nan
+
+Column: full_genotype_id
+Data Type: int64
+First 5 values:
+67
+67
+67
+67
+67
+
+Column: full_genotype_color
+Data Type: object
+First 5 values:
+#E726
+#E726
+#E726
+#E726
+#E726
+
+Column: external_donor_name_id
+Data Type: int64
+First 5 values:
+454
+454
+507
+507
+507
+
+Column: external_donor_name_color
+Data Type: object
+First 5 values:
+#C14D
+#C14D
+#99177F
+#99177F
+#99177F
+
+Column: facs_population_plan_id
+Data Type: int64
+First 5 values:
+6
+6
+6
+6
+6
+
+Column: facs_population_plan_color
+Data Type: object
+First 5 values:
+#4C2E99
+#4C2E99
+#4C2E99
+#4C2E99
+#4C2E99
+
+Column: injection_materials_id
+Data Type: int64
+First 5 values:
+1
+1
+1
+1
+1
+
+Column: injection_materials_color
+Data Type: object
+First 5 values:
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+
+Column: injection_method_id
+Data Type: int64
+First 5 values:
+1
+1
+1
+1
+1
+
+Column: injection_method_color
+Data Type: object
+First 5 values:
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+
+Column: injection_roi_id
+Data Type: int64
+First 5 values:
+1
+1
+1
+1
+1
+
+Column: injection_roi_color
+Data Type: object
+First 5 values:
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+
+Column: injection_type_id
+Data Type: int64
+First 5 values:
+1
+1
+1
+1
+1
+
+Column: injection_type_color
+Data Type: object
+First 5 values:
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+
+Column: cell_type_accession_label
+Data Type: object
+First 5 values:
+CS202106160_116
+CS202106160_364
+CS202106160_18
+CS202106160_15
+CS202106160_18
+
+Column: cell_type_alias_label
+Data Type: object
+First 5 values:
+116_Pvalb
+364_DG
+18_Lamp5
+15_Lamp5
+18_Lamp5
+
+Column: cell_type_alt_alias_label
+Data Type: float64
+First 5 values:
+nan
+nan
+nan
+nan
+nan
+
+Column: cell_type_designation_label
+Data Type: object
+First 5 values:
+CTX-HPF 116
+CTX-HPF 364
+CTX-HPF 018
+CTX-HPF 015
+CTX-HPF 018
+
+Column: cell_type_designation_id
+Data Type: int64
+First 5 values:
+116
+364
+18
+15
+18
+
+Column: cell_type_alt_alias_id
+Data Type: int64
+First 5 values:
+116
+364
+18
+15
+18
+
+Column: cell_type_alias_id
+Data Type: int64
+First 5 values:
+116
+364
+18
+15
+18
+
+Column: cell_type_accession_id
+Data Type: int64
+First 5 values:
+116
+364
+18
+15
+18
+
+Column: cell_type_designation_color
+Data Type: object
+First 5 values:
+#EC2D46
+#413BE2
+#D97C80
+#A6666F
+#D97C80
+
+Column: cell_type_alt_alias_color
+Data Type: object
+First 5 values:
+#EC2D46
+#413BE2
+#D97C80
+#A6666F
+#D97C80
+
+Column: cell_type_alias_color
+Data Type: object
+First 5 values:
+#EC2D46
+#413BE2
+#D97C80
+#A6666F
+#D97C80
+
+Column: cell_type_accession_color
+Data Type: object
+First 5 values:
+#EC2D46
+#413BE2
+#D97C80
+#A6666F
+#D97C80
+
+Column: cortical_layer_label
+Data Type: float64
+First 5 values:
+nan
+nan
+nan
+nan
+nan
+
+Column: cortical_layer_order
+Data Type: int64
+First 5 values:
+1
+1
+1
+1
+1
+
+Column: cortical_layer_color
+Data Type: object
+First 5 values:
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+#FF7373
+
