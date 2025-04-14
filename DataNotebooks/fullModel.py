@@ -110,7 +110,7 @@ orthologs = pd.read_csv('/user/work/pr21872/test_aai/Encoder-Decoder/spatial_gen
 # Gene order in .npz
 adata_file = '/user/work/pr21872/SpaceData/bigData/Expressions/expression_matrices/MERFISH-C57BL6J-638850-imputed/20240831/C57BL6J-638850-imputed-log2.h5ad'
 adata = anndata.read_h5ad(adata_file, backed='r')
-gene_name_order = adata.var_names
+mouse_gene_name_order = adata.var_names
 # Gene othologs
 mouse_orthologous_gene_names = orthologs["Gene name"].to_list()
 ortholog_set = set(mouse_orthologous_gene_names) #faster lookup
@@ -118,11 +118,11 @@ ortholog_set = set(mouse_orthologous_gene_names) #faster lookup
 mouse_aggregate_data = np.load(mouse_aggregate_path)
 mouse_mean_expression = mouse_aggregate_data['mean_expression'] #(104, 43, 8460)
 # Only keep the genes in orthologs list.
-mask = np.array([gene in ortholog_set for gene in gene_name_order])
-indices_to_keep = np.where(mask)[0]
+mouse_gene_mask = np.array([gene in ortholog_set for gene in mouse_gene_name_order])
+indices_to_keep = np.where(mouse_gene_mask)[0]
 filtered_mouse_mean_expression = mouse_mean_expression[:, :, indices_to_keep].copy() #(104, 43, 4851)
 # For space
-del indices_to_keep, mask, mouse_mean_expression, mouse_aggregate_data
+del indices_to_keep, mouse_gene_mask, mouse_mean_expression, mouse_aggregate_data
 del mouse_orthologous_gene_names, adata
 
 # ------------- Macaque -------------
@@ -140,6 +140,35 @@ filtered_macaque_mean_expression = macaque_mean_expression[macaque_indices_to_ke
 # for space
 del macaque_indices_to_keep, macaque_gene_mask, macaque_ortholog_set, macaque_orthologous_gene_names
 del macaque_mean_expression, macaque_genes, macaque_aggregate_data
+
+"""Reorganise so orthologous genes map to each others index"""
+# Convert to a NumPy array for convenience
+filtered_mouse_gene_names = np.array(mouse_gene_name_order)[mouse_gene_mask]
+filtered_macaque_gene_names = np.array(macaque_genes)[macaque_gene_mask]
+
+# For each gene in the canonical order, find where it appears in the filtered arrays.
+mouse_order_indices = []
+macaque_order_indices = []
+for m_gene, maca_gene in zip(mouse_orthologous_gene_names, macaque_orthologous_gene_names):
+    # Only include genes that exist in both filtered sets.
+    if m_gene in filtered_mouse_gene_names and maca_gene in filtered_macaque_gene_names:
+        # Find the index in the filtered mouse list.
+        mouse_idx = np.where(filtered_mouse_gene_names == m_gene)[0][0]
+        # Find the index in the filtered macaque list.
+        macaque_idx = np.where(filtered_macaque_gene_names == maca_gene)[0][0]
+        mouse_order_indices.append(mouse_idx)
+        macaque_order_indices.append(macaque_idx)
+
+# reorder the gene axes in your expression arrays so that gene i in mouse aligns with gene i in macaque.
+final_filtered_mouse_mean_expression = filtered_mouse_mean_expression[:, :, mouse_order_indices].copy()
+final_filtered_macaque_mean_expression = filtered_macaque_mean_expression[macaque_order_indices, :, :].copy()
+del filtered_mouse_mean_expression, filtered_macaque_mean_expression
+
+# verify the new shape or print a few gene names to confirm the alignment.
+print("New mouse expression shape:", final_filtered_mouse_mean_expression.shape)
+print("New macaque expression shape:", final_filtered_macaque_mean_expression.shape)
+print("Aligned mouse genes:", filtered_mouse_gene_names[mouse_order_indices][:5])
+print("Aligned macaque genes:", filtered_macaque_gene_names[macaque_order_indices][:5])
 
 """Only keep the cells in the mappings"""
 mouse_cells = list(cell_mappings_dict.keys())
@@ -163,7 +192,7 @@ macaque_indices_to_keep = np.where(macaque_cell_mask)[0]
 # Store final ordering of cells
 final_macaque_cell_names = [macaque_cell_name_in_index[i] for i in macaque_indices_to_keep]
 # Filter for only those cells
-cells_filtered_macaque_mean_expression = filtered_macaque_mean_expression[:, :, macaque_indices_to_keep].copy() # (4851, 141, <258)
+cells_filtered_macaque_mean_expression = final_filtered_macaque_mean_expression[:, :, macaque_indices_to_keep].copy() # (4851, 141, <258)
 # For space
 del filtered_macaque_mean_expression
 
@@ -181,7 +210,7 @@ mouse_indices_to_keep = np.where(mouse_cell_mask)[0]
 # Store final cell names positions
 final_mouse_cell_names = [unique_supertypes[i] for i in mouse_indices_to_keep]
 # Filter for only those cells
-cells_filtered_mouse_mean_expression = filtered_mouse_mean_expression[mouse_indices_to_keep, :, :].copy() # (<104, 43, 8460)
+cells_filtered_mouse_mean_expression = final_filtered_mouse_mean_expression[mouse_indices_to_keep, :, :].copy() # (<104, 43, 8460)
 # For space 
 del filtered_mouse_mean_expression
 
