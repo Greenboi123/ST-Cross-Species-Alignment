@@ -1,3 +1,5 @@
+#the cell_id_to_celltype_lookup.csv is taken from the .TSV file which has the cell_ID on each slide and what cell type that matches to.
+#IMPORTANT: the cell_IDs repeat each slide. As cell_ID 3 means different on slide T100 and T101.
 import pandas as pd
 
 # Read the existing lookup CSV file
