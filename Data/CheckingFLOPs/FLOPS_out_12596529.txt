@@ -1,0 +1,13 @@
+Running on host bp1-compute002
+Started on Tue Apr 29 21:54:19 BST 2025
+Directory is /user/work/pr21872/test_aai
+Slurm job ID is 12596529
+This jobs runs on the following machines:
+bp1-compute002
+
+
+Encoder  MACs : 344.99 MMac
+Encdoer Params: 7.89 M
+
+
+Ended on: Tue Apr 29 21:54:27 BST 2025
